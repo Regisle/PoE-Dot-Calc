@@ -1,0 +1,491 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://menu.gd" type="Script" id=1]
+[ext_resource path="res://Graph.gd" type="Script" id=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Inputs" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 310.0
+margin_bottom = 590.0
+custom_constants/separation = 15
+
+[node name="simulations" type="VBoxContainer" parent="HBoxContainer/Inputs"]
+margin_right = 310.0
+margin_bottom = 58.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Inputs/simulations"]
+margin_right = 310.0
+margin_bottom = 58.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Inputs/simulations/HBoxContainer"]
+margin_right = 91.0
+margin_bottom = 58.0
+
+[node name="Label" type="Label" parent="HBoxContainer/Inputs/simulations/HBoxContainer/VBoxContainer"]
+margin_right = 91.0
+margin_bottom = 14.0
+text = "Simulations    "
+
+[node name="SpinBox" type="SpinBox" parent="HBoxContainer/Inputs/simulations/HBoxContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 91.0
+margin_bottom = 42.0
+value = 100.0
+allow_greater = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/Inputs/simulations/HBoxContainer"]
+margin_left = 95.0
+margin_right = 230.0
+margin_bottom = 58.0
+
+[node name="Label" type="Label" parent="HBoxContainer/Inputs/simulations/HBoxContainer/VBoxContainer2"]
+margin_right = 135.0
+margin_bottom = 14.0
+text = "Simulation Duration  "
+
+[node name="SpinBox" type="SpinBox" parent="HBoxContainer/Inputs/simulations/HBoxContainer/VBoxContainer2"]
+margin_top = 18.0
+margin_right = 135.0
+margin_bottom = 42.0
+step = 0.1
+value = 100.0
+allow_greater = true
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer/Inputs/simulations/HBoxContainer"]
+margin_left = 234.0
+margin_right = 310.0
+margin_bottom = 58.0
+
+[node name="Label" type="Label" parent="HBoxContainer/Inputs/simulations/HBoxContainer/VBoxContainer3"]
+margin_right = 76.0
+margin_bottom = 14.0
+text = "Graph"
+
+[node name="CheckButton" type="CheckButton" parent="HBoxContainer/Inputs/simulations/HBoxContainer/VBoxContainer3"]
+margin_top = 18.0
+margin_right = 76.0
+margin_bottom = 58.0
+
+[node name="AttackTime" type="VBoxContainer" parent="HBoxContainer/Inputs"]
+margin_top = 73.0
+margin_right = 310.0
+margin_bottom = 115.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Inputs/AttackTime"]
+margin_right = 310.0
+margin_bottom = 42.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Inputs/AttackTime/HBoxContainer"]
+margin_right = 74.0
+margin_bottom = 42.0
+
+[node name="Label" type="Label" parent="HBoxContainer/Inputs/AttackTime/HBoxContainer/VBoxContainer"]
+margin_right = 74.0
+margin_bottom = 14.0
+text = "Attack time"
+
+[node name="SpinBox" type="SpinBox" parent="HBoxContainer/Inputs/AttackTime/HBoxContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 74.0
+margin_bottom = 42.0
+max_value = 5.0
+step = 0.01
+value = 1.25
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/Inputs/AttackTime/HBoxContainer"]
+margin_left = 78.0
+margin_right = 240.0
+margin_bottom = 42.0
+
+[node name="CheckButton" type="CheckButton" parent="HBoxContainer/Inputs/AttackTime/HBoxContainer/VBoxContainer2"]
+margin_right = 162.0
+margin_bottom = 40.0
+text = "Single Attack"
+
+[node name="DoTBasics" type="VBoxContainer" parent="HBoxContainer/Inputs"]
+margin_top = 130.0
+margin_right = 310.0
+margin_bottom = 172.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Inputs/DoTBasics"]
+margin_right = 310.0
+margin_bottom = 42.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Inputs/DoTBasics/HBoxContainer"]
+margin_right = 78.0
+margin_bottom = 42.0
+
+[node name="Label" type="Label" parent="HBoxContainer/Inputs/DoTBasics/HBoxContainer/VBoxContainer"]
+margin_right = 78.0
+margin_bottom = 14.0
+text = "DOT Chance"
+
+[node name="SpinBox" type="SpinBox" parent="HBoxContainer/Inputs/DoTBasics/HBoxContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 78.0
+margin_bottom = 42.0
+value = 100.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/Inputs/DoTBasics/HBoxContainer"]
+margin_left = 82.0
+margin_right = 167.0
+margin_bottom = 42.0
+
+[node name="Label" type="Label" parent="HBoxContainer/Inputs/DoTBasics/HBoxContainer/VBoxContainer2"]
+margin_right = 85.0
+margin_bottom = 14.0
+text = "DOT duration"
+
+[node name="SpinBox" type="SpinBox" parent="HBoxContainer/Inputs/DoTBasics/HBoxContainer/VBoxContainer2"]
+margin_top = 18.0
+margin_right = 85.0
+margin_bottom = 42.0
+step = 0.1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer/Inputs/DoTBasics/HBoxContainer"]
+margin_left = 171.0
+margin_right = 245.0
+margin_bottom = 42.0
+
+[node name="Label" type="Label" parent="HBoxContainer/Inputs/DoTBasics/HBoxContainer/VBoxContainer3"]
+margin_right = 74.0
+margin_bottom = 14.0
+text = "DOT stacks"
+
+[node name="SpinBox" type="SpinBox" parent="HBoxContainer/Inputs/DoTBasics/HBoxContainer/VBoxContainer3"]
+margin_top = 18.0
+margin_right = 74.0
+margin_bottom = 42.0
+min_value = 1.0
+max_value = 8.0
+value = 1.0
+
+[node name="DotBase" type="VBoxContainer" parent="HBoxContainer/Inputs"]
+margin_top = 187.0
+margin_right = 310.0
+margin_bottom = 247.0
+
+[node name="Label" type="Label" parent="HBoxContainer/Inputs/DotBase"]
+margin_right = 310.0
+margin_bottom = 14.0
+text = "DotBase"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Inputs/DotBase"]
+margin_top = 18.0
+margin_right = 310.0
+margin_bottom = 60.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Inputs/DotBase/HBoxContainer"]
+margin_right = 74.0
+margin_bottom = 42.0
+
+[node name="Label" type="Label" parent="HBoxContainer/Inputs/DotBase/HBoxContainer/VBoxContainer"]
+margin_right = 74.0
+margin_bottom = 14.0
+text = "Min"
+
+[node name="SpinBox" type="SpinBox" parent="HBoxContainer/Inputs/DotBase/HBoxContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 74.0
+margin_bottom = 42.0
+allow_greater = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/Inputs/DotBase/HBoxContainer"]
+margin_left = 78.0
+margin_right = 152.0
+margin_bottom = 42.0
+
+[node name="Label" type="Label" parent="HBoxContainer/Inputs/DotBase/HBoxContainer/VBoxContainer2"]
+margin_right = 74.0
+margin_bottom = 14.0
+text = "Max"
+
+[node name="SpinBox" type="SpinBox" parent="HBoxContainer/Inputs/DotBase/HBoxContainer/VBoxContainer2"]
+margin_top = 18.0
+margin_right = 74.0
+margin_bottom = 42.0
+allow_greater = true
+
+[node name="Crit" type="VBoxContainer" parent="HBoxContainer/Inputs"]
+margin_top = 262.0
+margin_right = 310.0
+margin_bottom = 322.0
+
+[node name="Label" type="Label" parent="HBoxContainer/Inputs/Crit"]
+margin_right = 310.0
+margin_bottom = 14.0
+text = "Crit"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Inputs/Crit"]
+margin_top = 18.0
+margin_right = 310.0
+margin_bottom = 60.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Inputs/Crit/HBoxContainer"]
+margin_right = 74.0
+margin_bottom = 42.0
+
+[node name="Label" type="Label" parent="HBoxContainer/Inputs/Crit/HBoxContainer/VBoxContainer"]
+margin_right = 74.0
+margin_bottom = 14.0
+text = "Chance"
+
+[node name="SpinBox" type="SpinBox" parent="HBoxContainer/Inputs/Crit/HBoxContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 74.0
+margin_bottom = 42.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/Inputs/Crit/HBoxContainer"]
+margin_left = 78.0
+margin_right = 152.0
+margin_bottom = 42.0
+
+[node name="Label" type="Label" parent="HBoxContainer/Inputs/Crit/HBoxContainer/VBoxContainer2"]
+margin_right = 74.0
+margin_bottom = 14.0
+text = "Mult"
+
+[node name="SpinBox" type="SpinBox" parent="HBoxContainer/Inputs/Crit/HBoxContainer/VBoxContainer2"]
+margin_top = 18.0
+margin_right = 74.0
+margin_bottom = 42.0
+min_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="MoreDot" type="VBoxContainer" parent="HBoxContainer/Inputs"]
+visible = false
+margin_top = 346.0
+margin_right = 245.0
+margin_bottom = 388.0
+
+[node name="Label" type="Label" parent="HBoxContainer/Inputs/MoreDot"]
+margin_right = 245.0
+margin_bottom = 14.0
+text = "Chance for 100% more DOT damage"
+
+[node name="SpinBox" type="SpinBox" parent="HBoxContainer/Inputs/MoreDot"]
+margin_right = 74.0
+margin_bottom = 24.0
+
+[node name="Ruthless" type="VBoxContainer" parent="HBoxContainer/Inputs"]
+margin_top = 337.0
+margin_right = 310.0
+margin_bottom = 397.0
+
+[node name="Label" type="Label" parent="HBoxContainer/Inputs/Ruthless"]
+margin_right = 310.0
+margin_bottom = 14.0
+text = "Ruthless"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Inputs/Ruthless"]
+margin_top = 18.0
+margin_right = 310.0
+margin_bottom = 60.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Inputs/Ruthless/HBoxContainer"]
+margin_right = 76.0
+margin_bottom = 42.0
+
+[node name="checkbox" type="CheckButton" parent="HBoxContainer/Inputs/Ruthless/HBoxContainer/VBoxContainer"]
+margin_right = 76.0
+margin_bottom = 40.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/Inputs/Ruthless/HBoxContainer"]
+margin_left = 80.0
+margin_right = 154.0
+margin_bottom = 42.0
+
+[node name="Label" type="Label" parent="HBoxContainer/Inputs/Ruthless/HBoxContainer/VBoxContainer2"]
+margin_right = 74.0
+margin_bottom = 14.0
+text = "Mult"
+
+[node name="SpinBox" type="SpinBox" parent="HBoxContainer/Inputs/Ruthless/HBoxContainer/VBoxContainer2"]
+margin_top = 18.0
+margin_right = 74.0
+margin_bottom = 42.0
+min_value = 1.0
+step = 0.01
+value = 2.32
+
+[node name="Multistrike" type="VBoxContainer" parent="HBoxContainer/Inputs"]
+margin_top = 412.0
+margin_right = 310.0
+margin_bottom = 472.0
+
+[node name="Label" type="Label" parent="HBoxContainer/Inputs/Multistrike"]
+margin_right = 310.0
+margin_bottom = 14.0
+text = "Multistrike"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Inputs/Multistrike"]
+margin_top = 18.0
+margin_right = 310.0
+margin_bottom = 60.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Inputs/Multistrike/HBoxContainer"]
+margin_right = 74.0
+margin_bottom = 42.0
+
+[node name="Label" type="Label" parent="HBoxContainer/Inputs/Multistrike/HBoxContainer/VBoxContainer"]
+margin_right = 74.0
+margin_bottom = 14.0
+text = "Repeates"
+
+[node name="SpinBox" type="SpinBox" parent="HBoxContainer/Inputs/Multistrike/HBoxContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 74.0
+margin_bottom = 42.0
+max_value = 3.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/Inputs/Multistrike/HBoxContainer"]
+margin_left = 78.0
+margin_right = 152.0
+margin_bottom = 42.0
+
+[node name="Label" type="Label" parent="HBoxContainer/Inputs/Multistrike/HBoxContainer/VBoxContainer2"]
+margin_right = 74.0
+margin_bottom = 14.0
+text = "Mult1"
+
+[node name="SpinBox" type="SpinBox" parent="HBoxContainer/Inputs/Multistrike/HBoxContainer/VBoxContainer2"]
+margin_top = 18.0
+margin_right = 74.0
+margin_bottom = 42.0
+min_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer/Inputs/Multistrike/HBoxContainer"]
+margin_left = 156.0
+margin_right = 230.0
+margin_bottom = 42.0
+
+[node name="Label" type="Label" parent="HBoxContainer/Inputs/Multistrike/HBoxContainer/VBoxContainer3"]
+margin_right = 74.0
+margin_bottom = 14.0
+text = "Mult2"
+
+[node name="SpinBox" type="SpinBox" parent="HBoxContainer/Inputs/Multistrike/HBoxContainer/VBoxContainer3"]
+margin_top = 18.0
+margin_right = 74.0
+margin_bottom = 42.0
+min_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="HBoxContainer/Inputs/Multistrike/HBoxContainer"]
+margin_left = 234.0
+margin_right = 308.0
+margin_bottom = 42.0
+
+[node name="Label" type="Label" parent="HBoxContainer/Inputs/Multistrike/HBoxContainer/VBoxContainer4"]
+margin_right = 74.0
+margin_bottom = 14.0
+text = "Mult3"
+
+[node name="SpinBox" type="SpinBox" parent="HBoxContainer/Inputs/Multistrike/HBoxContainer/VBoxContainer4"]
+margin_top = 18.0
+margin_right = 74.0
+margin_bottom = 42.0
+min_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Control" type="Control" parent="HBoxContainer/Inputs"]
+margin_top = 487.0
+margin_right = 310.0
+margin_bottom = 491.0
+size_flags_vertical = 3
+
+[node name="ResetSimulation" type="Button" parent="HBoxContainer/Inputs"]
+margin_top = 506.0
+margin_right = 310.0
+margin_bottom = 526.0
+text = "Reset Simulation"
+
+[node name="RunSimulation" type="Button" parent="HBoxContainer/Inputs"]
+margin_top = 541.0
+margin_right = 310.0
+margin_bottom = 561.0
+text = "Run Simulation"
+
+[node name="Label" type="Label" parent="HBoxContainer/Inputs"]
+margin_top = 576.0
+margin_right = 310.0
+margin_bottom = 590.0
+text = "By Regisle"
+align = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 314.0
+margin_right = 1004.0
+margin_bottom = 590.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+margin_right = 690.0
+margin_bottom = 14.0
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+margin_bottom = 14.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 690.0
+margin_bottom = 32.0
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer2"]
+margin_bottom = 14.0
+
+[node name="Graph" type="ColorRect" parent="HBoxContainer/VBoxContainer"]
+margin_top = 36.0
+margin_right = 690.0
+margin_bottom = 590.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.34902, 0.34902, 0.34902, 1 )
+script = ExtResource( 2 )
+
+[connection signal="value_changed" from="HBoxContainer/Inputs/simulations/HBoxContainer/VBoxContainer/SpinBox" to="." method="_on_Simulation_changed"]
+[connection signal="value_changed" from="HBoxContainer/Inputs/simulations/HBoxContainer/VBoxContainer2/SpinBox" to="." method="_on_Simulation_Duration_changed"]
+[connection signal="toggled" from="HBoxContainer/Inputs/simulations/HBoxContainer/VBoxContainer3/CheckButton" to="." method="_on_Graph_toggled"]
+[connection signal="value_changed" from="HBoxContainer/Inputs/AttackTime/HBoxContainer/VBoxContainer/SpinBox" to="." method="_on_AttackTime_changed"]
+[connection signal="toggled" from="HBoxContainer/Inputs/AttackTime/HBoxContainer/VBoxContainer2/CheckButton" to="." method="_on_SingleAttack_toggled"]
+[connection signal="value_changed" from="HBoxContainer/Inputs/DoTBasics/HBoxContainer/VBoxContainer/SpinBox" to="." method="_on_DotChance_changed"]
+[connection signal="value_changed" from="HBoxContainer/Inputs/DoTBasics/HBoxContainer/VBoxContainer2/SpinBox" to="." method="_on_DotDuration_changed"]
+[connection signal="value_changed" from="HBoxContainer/Inputs/DoTBasics/HBoxContainer/VBoxContainer3/SpinBox" to="." method="_on_DotStacks_changed"]
+[connection signal="value_changed" from="HBoxContainer/Inputs/DotBase/HBoxContainer/VBoxContainer/SpinBox" to="." method="_on_DotBase_Min_changed"]
+[connection signal="value_changed" from="HBoxContainer/Inputs/DotBase/HBoxContainer/VBoxContainer2/SpinBox" to="." method="_on_DotBase_Max_changed"]
+[connection signal="value_changed" from="HBoxContainer/Inputs/Crit/HBoxContainer/VBoxContainer/SpinBox" to="." method="_on_Crit_Chance_changed"]
+[connection signal="value_changed" from="HBoxContainer/Inputs/Crit/HBoxContainer/VBoxContainer2/SpinBox" to="." method="_on_Crit_Mult_changed"]
+[connection signal="value_changed" from="HBoxContainer/Inputs/MoreDot/SpinBox" to="." method="_on_MoreBleed_changed"]
+[connection signal="toggled" from="HBoxContainer/Inputs/Ruthless/HBoxContainer/VBoxContainer/checkbox" to="." method="_on_Ruthless_toggled"]
+[connection signal="value_changed" from="HBoxContainer/Inputs/Ruthless/HBoxContainer/VBoxContainer2/SpinBox" to="." method="_on_Ruthless_Mult_changed"]
+[connection signal="value_changed" from="HBoxContainer/Inputs/Multistrike/HBoxContainer/VBoxContainer/SpinBox" to="." method="_on_Multistrike_Repeates_changed"]
+[connection signal="value_changed" from="HBoxContainer/Inputs/Multistrike/HBoxContainer/VBoxContainer2/SpinBox" to="." method="_on_Multistrike_Mult1_changed"]
+[connection signal="value_changed" from="HBoxContainer/Inputs/Multistrike/HBoxContainer/VBoxContainer3/SpinBox" to="." method="_on_Multistrike_Mult2_changed"]
+[connection signal="value_changed" from="HBoxContainer/Inputs/Multistrike/HBoxContainer/VBoxContainer4/SpinBox" to="." method="_on_Multistrike_Mult3_changed"]
+[connection signal="pressed" from="HBoxContainer/Inputs/ResetSimulation" to="." method="_on_ResetSimulation_pressed"]
+[connection signal="pressed" from="HBoxContainer/Inputs/RunSimulation" to="." method="_on_Simulation_pressed"]
