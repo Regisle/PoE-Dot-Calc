@@ -191,13 +191,13 @@ func _on_Simulation_pressed() -> void:
 	calc.setDotVar(dotChance, DotBase.min, DotBase.max, maxStacks, duration)
 	$HBoxContainer/Inputs/RunSimulation.disabled = true
 	$HBoxContainer/Inputs/RunSimulation.text = "Simulating"
-	var numstacks = min(maxStacks, duration / attacktime)
+	var numstacks = duration / attacktime / maxStacks
 	PoBEstimate = dotChance * (100 - crit.chance + crit.chance * crit.mult)  / (100 * 100)
-	PoBEstimate = PoBEstimate * numstacks
-	BetterPoBEstimate = PoBEstimate * (DotBase.min + (DotBase.max - DotBase.min) / pow(2, numstacks / (numstacks + 1)))
+	PoBEstimate = PoBEstimate * min(maxStacks, duration / attacktime)
+	BetterPoBEstimate = PoBEstimate * (DotBase.min + (DotBase.max - DotBase.min) / pow(2, 1 / (numstacks + 1)))
 	PoBEstimate = PoBEstimate * (DotBase.min + DotBase.max) / 2
 	if Ruthless.active:
-		 BetterPoBEstimate = BetterPoBEstimate * (1 + (Ruthless.mult - 1) / pow(3, numstacks / (2 * (numstacks + 1))))
+		 BetterPoBEstimate = BetterPoBEstimate * (1 + (Ruthless.mult - 1) / pow(3, 1 / (2 * (numstacks + 1))))
 		 PoBEstimate = PoBEstimate * (1 + (Ruthless.mult - 1) / 3)
 	pass
 
